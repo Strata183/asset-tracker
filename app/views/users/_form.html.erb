@@ -1,0 +1,18 @@
+<%= form_with(model: user) do |form| %>
+  <div class="mb-3">
+    <%= form.label :first_name, class: "form-label" %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :last_name, class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :department_id, "Department", class: "form-label" %>
+    <%= form.collection_select :department_id, Department.all, :id, :name, { include_blank: "Select Department" }, { class: "form-select" } %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>

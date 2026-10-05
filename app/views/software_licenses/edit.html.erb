@@ -1,0 +1,12 @@
+<% content_for :title, "Editing software license" %>
+
+<h1>Editing software license</h1>
+
+<%= render "form", software_license: @software_license %>
+
+<br>
+
+<div>
+  <%= link_to "Show this software license", @software_license %> |
+  <%= link_to "Back to software licenses", software_licenses_path %>
+</div>

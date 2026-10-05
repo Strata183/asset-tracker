@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Software licenses" %>
+
+<h1>Software licenses</h1>
+
+<div id="software_licenses">
+  <% @software_licenses.each do |software_license| %>
+    <%= render software_license %>
+    <p>
+      <%= link_to "Show this software license", software_license %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New software license", new_software_license_path %>
