@@ -39,6 +39,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_05_173547) do
     t.datetime "created_at", null: false
     t.integer "department_id", null: false
     t.string "first_name"
+    t.string "last_name"
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_users_on_department_id"
   end
