@@ -1,0 +1,75 @@
+
+<div class="container mt-4">
+  <h1>Dashboard</h1>
+
+  <!-- Users per Department -->
+  <h2 class="mt-4">Users per Department</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>User Count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @departments.each do |department| %>
+        <tr>
+          <td><%= department.name %></td>
+          <td><%= department.users.size %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- Devices by Department -->
+  <h2 class="mt-4">Devices by Department</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Device Count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @devices_by_department.each do |department| %>
+        <tr>
+          <td><%= department.name %></td>
+          <td><%= department.users.sum { |user| user.devices.size } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- Software License Usage -->
+  <h2 class="mt-4">Software License Usage</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Software License</th>
+        <th>License Count</th>
+        <th>License Usage</th>
+        <th>Compliant?</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% ["Microsoft Office", "Microsoft Windows", "Adobe Pro"].each do |name| %>
+        <% count = @license_counts.fetch(name, 0) %>
+        <% usage = @license_usage.fetch(name, 0) %>
+
+        <tr>
+          <td><%= name %></td>
+          <td><%= count %></td>
+          <td><%= usage %></td>
+          <td><%= usage <= count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "users#index"
+  get "dashboard/index"
+  root "dashboard#index"
   resources :software_licenses
   resources :devices
   resources :users

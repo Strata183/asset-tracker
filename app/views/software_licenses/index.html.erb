@@ -1,16 +1,27 @@
-<p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Software licenses" %>
+<% content_for :title, "Software Licenses" %>
 
-<h1>Software licenses</h1>
+<h1>Software Licenses</h1>
 
-<div id="software_licenses">
-  <% @software_licenses.each do |software_license| %>
-    <%= render software_license %>
+<% [
+  ["Microsoft Office", 10, 1],
+  ["Microsoft Windows", 10, 2],
+  ["Adobe Pro", 10, 3]
+].each do |name, license_count, license_id| %>
+  <div>
     <p>
-      <%= link_to "Show this software license", software_license %>
+      <strong>Name:</strong>
+      <%= name %>
     </p>
-  <% end %>
-</div>
+
+    <p>
+      <strong>License count:</strong>
+      <%= license_count %>
+    </p>
+
+    <%= link_to "Show this software license", software_license_path(license_id) %>
+  </div>
+<% end %>
 
 <%= link_to "New software license", new_software_license_path %>
+
